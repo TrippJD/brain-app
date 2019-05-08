@@ -6,3 +6,7 @@
   justify-content: center;
   cursor: pointer;
 }
+
+.pic-wrapper {
+  padding-bottom: 30px;
+}

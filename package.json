@@ -6,6 +6,7 @@
     "clarifai": "^2.9.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-fetch-progressbar": "^1.0.0",
     "react-particles-js": "^2.4.2",
     "react-scripts": "2.1.8",
     "react-tilt": "^0.1.4",
@@ -20,7 +21,12 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"],
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "devDependencies": {
     "eslint-config-prettier": "^4.0.0",
     "eslint-plugin-prettier": "^3.0.1",

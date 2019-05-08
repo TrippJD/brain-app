@@ -8,6 +8,12 @@ import Logo from "./components/logo/logo";
 import Rank from "./components/rank/rank";
 import ImageLinkForm from "./components/imageLinkForm/imageLinkForm";
 import FaceRecognition from "./components/faceRecognition/faceRecognition";
+import Footer from "./components/footer/footer";
+import { ProgressBar } from "react-fetch-progressbar";
+import { progressBarFetch, setOriginalFetch } from "react-fetch-progressbar";
+
+setOriginalFetch(window.fetch);
+window.fetch = progressBarFetch;
 
 const particlesOptions = {
   particles: {
@@ -230,6 +236,7 @@ class App extends Component {
           isSignedIn={isSignedIn}
           onRouteChange={this.onRouteChange}
         />
+        <ProgressBar style={{ backgroundColor: "#752cd4" }} />
         {route === "home" ? (
           <div>
             <Logo />
@@ -245,13 +252,18 @@ class App extends Component {
             <FaceRecognition box={box} imageUrl={imageUrl} />
           </div>
         ) : route === "signin" ? (
-          <Signin onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
+          <Signin
+            onRouteChange={this.onRouteChange}
+            loadUser={this.loadUser}
+            pending={this.pending}
+          />
         ) : (
           <Register
             onRouteChange={this.onRouteChange}
             loadUser={this.loadUser}
           />
         )}
+        <Footer />
       </div>
     );
   }

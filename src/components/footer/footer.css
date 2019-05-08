@@ -1,0 +1,15 @@
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 30px;
+  background-color: rgba(39, 39, 39, 0.95);
+}
+
+.brand-text {
+  position: relative;
+  font-style: italic;
+  font-family: "Lato", sans-serif;
+  color: #10dcb2;
+  top: 4px;
+}

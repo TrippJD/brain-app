@@ -1,11 +1,35 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700i");
+
 .App {
+  position: relative;
+  min-height: 100vh;
   text-align: center;
 }
+
+/* nav text */
+.pin {
+  font-style: italic;
+  font-family: "Lato", sans-serif;
+  color: #10dcb2;
+}
+/* nav bar */
+.nav {
+  background-color: rgba(39, 39, 39, 0.95);
+}
+
+/* entries text */
+.entries-text {
+  font-style: italic;
+  font-family: "Lato", sans-serif;
+  color: #2c3531;
+}
+
 .center {
   display: flex;
   justify-content: center;
 }
 
+/* particle background */
 .particle {
   position: fixed;
   top: 0;
@@ -13,4 +37,30 @@
   bottom: 0;
   left: 0;
   z-index: -1;
+}
+
+/* sign in and register css------------- */
+/* input feilds */
+.hoverr:hover {
+  border-color: white;
+}
+.hoverr:focus {
+  border-color: rgb(55, 74, 247);
+}
+
+p {
+  cursor: pointer;
+}
+/* sign in and register banner */
+.sib {
+  background-color: rgba(48, 108, 148, 0.3);
+}
+/* sign in and register article */
+.art {
+  margin-top: 15vh;
+}
+/* ---------------------------------- */
+
+button {
+  cursor: pointer;
 }

@@ -4,7 +4,9 @@ import "./imageLinkForm.css";
 const ImageLinkForm = ({ enterPress, onInputChange, onButtonSubmit }) => {
   return (
     <div>
-      <p className="f3">{"I will detect faces in any picture. Try me!"} </p>
+      <p className="entries-text f3">
+        {"I will detect faces in any picture. Try me!"}{" "}
+      </p>
       <div className="center">
         <div className="pa4 br3 shadow-5 center form">
           <input
@@ -16,8 +18,7 @@ const ImageLinkForm = ({ enterPress, onInputChange, onButtonSubmit }) => {
           <button
             id="myBtn"
             className="w-30 grow f4 link ph3 pv2 dib white bg-light-purple"
-            onClick={onButtonSubmit}
-          >
+            onClick={onButtonSubmit}>
             Detect
           </button>
         </div>
