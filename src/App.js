@@ -177,11 +177,16 @@ class App extends Component {
     this.setState({ box: box });
   };
 
+  // enterPress = event => {
+  //   if (event.keyCode === 13) {
+  //     return this.onButtonSubmit();
+  //   }
+  // };
+
   enterPress = event => {
-    if (event.keyCode === 13) {
-      return;
+    if (event.which === 13) {
+      return this.onButtonSubmit();
     }
-    return this.onButtonSubmit();
   };
 
   onInputChange = event => {
@@ -190,7 +195,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({ imageUrl: this.state.input });
-    fetch("https://murmuring-hamlet-47938.herokuapp.com/imageurl", {
+    fetch("https://brains-app-api.herokuapp.com/imageurl", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -200,7 +205,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if (response) {
-          fetch("https://murmuring-hamlet-47938.herokuapp.com/image", {
+          fetch("https://brains-app-api.herokuapp.com/image", {
             method: "put",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -252,11 +257,7 @@ class App extends Component {
             <FaceRecognition box={box} imageUrl={imageUrl} />
           </div>
         ) : route === "signin" ? (
-          <Signin
-            onRouteChange={this.onRouteChange}
-            loadUser={this.loadUser}
-            pending={this.pending}
-          />
+          <Signin onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
         ) : (
           <Register
             onRouteChange={this.onRouteChange}

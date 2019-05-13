@@ -1,11 +1,14 @@
 import React from "react";
+import "./signin.css";
+import ErrMessage from "./ErrMessage";
 
 class Signin extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       signInEmail: "",
-      signInPassword: ""
+      signInPassword: "",
+      isErr: false
     };
   }
 
@@ -19,9 +22,8 @@ class Signin extends React.Component {
   // Submit signIn on enter press
   enterSubmit = event => {
     if (event.keyCode === 13) {
-      return;
+      return this.onSubmitSignin();
     }
-    return this.onSubmitSignin();
   };
 
   // Update signIn state with value of form
@@ -34,7 +36,7 @@ class Signin extends React.Component {
 
   // Submit signIn info to sever/ Load user info/ change rout to home
   onSubmitSignin = () => {
-    fetch("https://murmuring-hamlet-47938.herokuapp.com/signin", {
+    fetch("https://brains-app-api.herokuapp.com/signin", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -45,9 +47,11 @@ class Signin extends React.Component {
       .then(response => response.json())
       .then(user => {
         if (user.id) {
+          this.setState({ isErr: false });
           this.props.loadUser(user);
           this.props.onRouteChange("home");
-          // this.props.pending(true);
+        } else {
+          this.setState({ isErr: true });
         }
       });
   };
@@ -68,8 +72,8 @@ class Signin extends React.Component {
                 <input
                   className="br1 pa2 input-reset ba b--black hoverr bg-transparent hover-bg-black hover-white w-100"
                   type="email"
-                  name="email-address"
-                  id="email-address"
+                  name="email"
+                  id="email"
                   onChange={this.onEmailChange}
                   onKeyDown={this.enterTab}
                 />
@@ -84,7 +88,7 @@ class Signin extends React.Component {
                   name="password"
                   id="password"
                   onChange={this.onPasswordChange}
-                  onKeyDown={this.onSubmitSignin}
+                  onKeyDown={this.enterSubmit}
                 />
               </div>
             </fieldset>
@@ -103,6 +107,7 @@ class Signin extends React.Component {
                 Register
               </p>
             </div>
+            {this.state.isErr ? <ErrMessage /> : null}
           </div>
         </main>
       </article>

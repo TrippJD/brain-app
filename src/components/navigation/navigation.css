@@ -1,0 +1,11 @@
+/* nav text */
+.nav-font {
+  font-style: italic;
+  font-family: "Lato", sans-serif;
+  color: #10dcb2;
+}
+
+/* nav bar */
+.nav {
+  background-color: rgba(39, 39, 39, 0.95);
+}

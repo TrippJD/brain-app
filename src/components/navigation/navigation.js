@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./navigation.css";
 const Navigation = ({ onRouteChange, isSignedIn }) => {
   if (isSignedIn) {
     return (
@@ -12,7 +12,7 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
         }}>
         <p
           onClick={() => onRouteChange("signin")}
-          className="pin f3 link dim ph3 pointer">
+          className="nav-font f3 link dim ph3 mt2 mb3 pointer">
           Sign Out
         </p>
       </nav>
@@ -28,12 +28,12 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
         }}>
         <p
           onClick={() => onRouteChange("signin")}
-          className="pin f3 link dim ph3 mt1 pointer">
+          className="nav-font f3 link dim ph3 mt2 mb3 pointer">
           Sign In
         </p>
         <p
           onClick={() => onRouteChange("register")}
-          className="pin f3 link dim ph3 mt1 pointer">
+          className="nav-font f3 link dim ph3 mt2 mb3 pointer">
           Register
         </p>
       </nav>

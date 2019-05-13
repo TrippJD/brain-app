@@ -1,0 +1,24 @@
+/* sign in and register css------------- */
+
+/* input feilds */
+.hoverr:hover {
+  border-color: white;
+}
+.hoverr:focus {
+  border-color: rgb(55, 74, 247);
+}
+
+/* sign in and register banner */
+.sib {
+  background-color: rgba(48, 108, 148, 0.3);
+}
+
+/* sign in and register article */
+.art {
+  margin-top: 15vh;
+}
+
+p {
+  cursor: pointer;
+}
+/* ---------------------------------- */

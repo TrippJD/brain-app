@@ -18,9 +18,8 @@ class Register extends React.Component {
 
   enterSubmit = event => {
     if (event.keyCode === 13) {
-      return;
+      return this.onSubmitSignin();
     }
-    return this.onSubmitSignin();
   };
 
   onNameChange = event => {
@@ -34,7 +33,7 @@ class Register extends React.Component {
   };
 
   onSubmitSignin = () => {
-    fetch("https://murmuring-hamlet-47938.herokuapp.com/register", {
+    fetch("https://brains-app-api.herokuapp.com/register", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
