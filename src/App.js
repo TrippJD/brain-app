@@ -12,10 +12,10 @@ import Footer from "./components/footer/footer";
 import { ProgressBar } from "react-fetch-progressbar";
 import { progressBarFetch, setOriginalFetch } from "react-fetch-progressbar";
 
-var http = require("http");
-setInterval(function() {
-  http.get("http://brains-app-api.herokuapp.com");
-}, 9000000); // every 5 minutes (300000)
+// var http = require("http");
+// setInterval(function() {
+//   http.get("http://brains-app-api.herokuapp.com");
+// }, 9000000); // every 5 minutes (300000)
 
 setOriginalFetch(window.fetch);
 window.fetch = progressBarFetch;
@@ -135,7 +135,7 @@ const initialState = {
   input: "",
   imageUrl: "",
   box: {},
-  route: "signin",
+  route: "home",
   isSignedIn: false,
   user: {
     id: "",

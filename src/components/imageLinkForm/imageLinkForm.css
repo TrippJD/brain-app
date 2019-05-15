@@ -6,8 +6,20 @@
 .form {
   width: 70vw;
   height: 11.5vw;
+  /* min-height: 85px; */
+  max-height: 105px;
   background-color: #040007;
   background-image: url(./woven-light.png);
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+
+  border-radius: 10px;
 }
-/* url("https://www.transparenttextures.com/patterns/woven-light.png") */
+
+#myBtn {
+  font-size: 1.7em;
+  font-style: italic;
+  font-family: "Lato", sans-serif;
+  color: #10dcb2;
+
+  border-radius: 8px;
+  margin-left: 0.5em;
+}

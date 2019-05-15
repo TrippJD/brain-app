@@ -8,7 +8,7 @@ const ImageLinkForm = ({ enterPress, onInputChange, onButtonSubmit }) => {
         {"I will detect faces in any picture. Try me!"}{" "}
       </p>
       <div className="center">
-        <div className="pa4 br3 shadow-5 center form">
+        <div className="pa4 shadow-5 center form">
           <input
             onKeyPress={enterPress}
             className=" input-form f4 pa2 w-70 center"
@@ -17,7 +17,7 @@ const ImageLinkForm = ({ enterPress, onInputChange, onButtonSubmit }) => {
           />
           <button
             id="myBtn"
-            className="w-30 grow f4 link ph3 pv2 dib white bg-light-purple"
+            className="w-30 grow link ph3 pv2 dib white bg-light-purple"
             onClick={onButtonSubmit}>
             Detect Faces
           </button>
