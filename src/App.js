@@ -30,16 +30,16 @@ const particlesOptions = {
       }
     },
     color: {
-      value: "#ffffff"
+      value: "#fcfffe"
     },
     shape: {
-      type: "circle",
+      type: "star",
       stroke: {
         width: 0,
-        color: "#000000"
+        color: "#ffffff"
       },
       polygon: {
-        nb_sides: 5
+        nb_sides: 7
       },
       image: {
         src: "img/github.svg",
@@ -51,9 +51,9 @@ const particlesOptions = {
       value: 0.5,
       random: false,
       anim: {
-        enable: false,
-        speed: 1,
-        opacity_min: 0.1,
+        enable: true,
+        speed: 0.2,
+        opacity_min: 0,
         sync: false
       }
     },
@@ -62,13 +62,13 @@ const particlesOptions = {
       random: true,
       anim: {
         enable: false,
-        speed: 40,
-        size_min: 0.1,
+        speed: 91.21621621621624,
+        size_min: 3.3783783783783794,
         sync: false
       }
     },
     line_linked: {
-      enable: true,
+      enable: false,
       distance: 150,
       color: "#ffffff",
       opacity: 0.4,
@@ -76,10 +76,10 @@ const particlesOptions = {
     },
     move: {
       enable: true,
-      speed: 6,
+      speed: 0,
       direction: "none",
       random: false,
-      straight: false,
+      straight: true,
       out_mode: "out",
       bounce: false,
       attract: {
@@ -93,12 +93,12 @@ const particlesOptions = {
     detect_on: "canvas",
     events: {
       onhover: {
-        enable: true,
+        enable: false,
         mode: "repulse"
       },
       onclick: {
-        enable: true,
-        mode: "push"
+        enable: false,
+        mode: "repulse"
       },
       resize: true
     },

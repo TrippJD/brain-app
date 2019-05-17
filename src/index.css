@@ -4,8 +4,11 @@ body {
   font-family: "Courier New", "Courier", "monospace", "Roboto";
   background: linear-gradient(
     to right,
-    rgb(127, 133, 235) 0%,
-    rgb(31, 151, 231) 50%,
-    rgb(38, 207, 216) 100%
+    rgb(76, 80, 145) 0%,
+    rgb(18, 91, 139) 50%,
+    rgb(26, 116, 121) 100%
   );
 }
+/* rgb(127, 133, 235) 0%,
+rgb(31, 151, 231) 50%,
+rgb(38, 207, 216) 100% */
