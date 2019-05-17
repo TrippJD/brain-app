@@ -10,8 +10,8 @@ const Logo = () => {
         className="Tilt br2 shadow-2"
         options={{ max: 50 }}
         style={{ height: 150, width: 150 }}>
-        <div className="Tilt-inner pa3">
-          <img style={{ padding: "5px" }} alt="atom" src={physics} />
+        <div className="Tilt-inner">
+          <img alt="atom" src={physics} />
         </div>
       </Tilt>
     </div>

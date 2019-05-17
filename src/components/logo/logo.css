@@ -1,9 +1,18 @@
-.Tilt {
+/* .Tilt {
   background-color: rgba(39, 39, 39, 0.9);
-  /* background: linear-gradient(
-    to right,
-    rgba(127, 133, 235, 1) 0%,
-    rgba(24, 155, 195, 1) 50%,
-    rgba(116, 202, 207, 1) 100%
-  ); */
+} */
+.Tilt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  background-color: #7d56ff00;
+  box-shadow: 0 20px 27px rgba(0, 0, 0, 0.05);
+  transform-style: preserve-3d;
+}
+
+.Tilt-inner {
+  transform: translateZ(200px);
+  /* font-size: 100px; */
 }

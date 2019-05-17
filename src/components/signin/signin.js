@@ -74,6 +74,7 @@ class Signin extends React.Component {
                   type="email"
                   name="email"
                   id="email"
+                  autofocus="autofocus"
                   onChange={this.onEmailChange}
                   onKeyDown={this.enterTab}
                 />

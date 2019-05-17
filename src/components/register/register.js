@@ -67,6 +67,7 @@ class Register extends React.Component {
                   type="text"
                   name="name"
                   id="name"
+                  autofocus="autofocus"
                   onChange={this.onNameChange}
                 />
               </div>
