@@ -8,6 +8,7 @@ import Logo from "./components/logo/logo";
 import Rank from "./components/rank/rank";
 import ImageLinkForm from "./components/imageLinkForm/imageLinkForm";
 import FaceRecognition from "./components/faceRecognition/faceRecognition";
+import Samples from "./components/samples/samples";
 import Footer from "./components/footer/footer";
 import { ProgressBar } from "react-fetch-progressbar";
 import { progressBarFetch, setOriginalFetch } from "react-fetch-progressbar";
@@ -52,7 +53,7 @@ const particlesOptions = {
       random: false,
       anim: {
         enable: true,
-        speed: 0.2,
+        speed: 0.5,
         opacity_min: 0,
         sync: false
       }
@@ -134,8 +135,8 @@ const particlesOptions = {
 const initialState = {
   input: "",
   imageUrl: "",
-  box: {},
-  route: "signin",
+  box: [],
+  route: "home",
   isSignedIn: false,
   user: {
     id: "",
@@ -152,6 +153,7 @@ class App extends Component {
     this.state = initialState;
   }
 
+  // loads user into state
   loadUser = data => {
     this.setState({
       user: {
@@ -164,42 +166,70 @@ class App extends Component {
     });
   };
 
+  // calculates face location from coords
   calculateFaceLocation = data => {
-    const clarifaiFace =
-      data.outputs[0].data.regions[0].region_info.bounding_box;
+    const regions = data.outputs[0].data.regions.reduce((acc, reg) => {
+      acc.push(reg.region_info.bounding_box);
+      return acc;
+    }, []);
+
     const image = document.getElementById("inputimage");
     const width = Number(image.width);
     const height = Number(image.height);
-    return {
-      leftCol: clarifaiFace.left_col * width,
-      topRow: clarifaiFace.top_row * height,
-      rightCol: width - clarifaiFace.right_col * width,
-      bottomRow: height - clarifaiFace.bottom_row * height
-    };
+
+    const newbox = regions.map(bbObj => {
+      return {
+        leftCol: bbObj.left_col * width,
+        topRow: bbObj.top_row * height,
+        rightCol: width - bbObj.right_col * width,
+        bottomRow: height - bbObj.bottom_row * height
+      };
+    });
+    return newbox;
   };
 
+  // sets box state
   displayFaceBox = box => {
     this.setState({ box: box });
   };
 
-  // enterPress = event => {
-  //   if (event.keyCode === 13) {
-  //     return this.onButtonSubmit();
-  //   }
-  // };
-
+  // submit on enter key in url form
   enterPress = event => {
     if (event.which === 13) {
       return this.onButtonSubmit();
     }
   };
 
+  // submits when sample pic is clicked
+  sampleClick = pic => {
+    this.setState(
+      {
+        input: pic
+      },
+      () => {
+        this.onButtonSubmit();
+      }
+    );
+  };
+
+  // sets input state on url form change
   onInputChange = event => {
     this.setState({ input: event.target.value });
   };
 
+  // submit photo function
   onButtonSubmit = () => {
     this.setState({ imageUrl: this.state.input });
+    // clear box state
+    this.setState({ box: [] });
+    // remove old boxes
+    const oldBox = document.getElementsByClassName("bounding-box");
+    if (oldBox.length) {
+      for (var i = oldBox.length - 1; i >= 0; --i) {
+        oldBox[i].remove();
+      }
+    }
+    // fetch box coordinates
     fetch("https://brains-app-api.herokuapp.com/imageurl", {
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -209,7 +239,9 @@ class App extends Component {
     })
       .then(response => response.json())
       .then(response => {
-        if (response) {
+        // if api responds with coordinates, run the following
+        if (response.outputs) {
+          // update "entries" in database
           fetch("https://brains-app-api.herokuapp.com/image", {
             method: "put",
             headers: { "Content-Type": "application/json" },
@@ -219,11 +251,13 @@ class App extends Component {
           })
             .then(response => response.json())
             .then(count => {
+              // update "entries" in state
               this.setState(Object.assign(this.state.user, { entries: count }));
             })
             .catch(console.log);
+          // update "box" in state/ start bounding box code
+          this.displayFaceBox(this.calculateFaceLocation(response));
         }
-        this.displayFaceBox(this.calculateFaceLocation(response));
       })
       .catch(err => console.log(err));
   };
@@ -260,6 +294,7 @@ class App extends Component {
               onButtonSubmit={this.onButtonSubmit}
             />
             <FaceRecognition box={box} imageUrl={imageUrl} />
+            <Samples sampleClick={this.sampleClick} />
           </div>
         ) : route === "signin" ? (
           <Signin onRouteChange={this.onRouteChange} loadUser={this.loadUser} />

@@ -11,7 +11,7 @@ const Logo = () => {
         options={{ max: 50 }}
         style={{ height: 150, width: 150 }}>
         <div className="Tilt-inner">
-          <img alt="atom" src={physics} />
+          <img className="rocket" alt="atom" src={physics} />
         </div>
       </Tilt>
     </div>

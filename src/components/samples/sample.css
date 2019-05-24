@@ -1,0 +1,29 @@
+.imgWrap {
+  display: flex;
+  justify-content: center;
+  /* padding-bottom: 31px; */
+}
+
+.imgCard {
+  background-color: rgba(39, 39, 39, 0.95);
+  display: inline-block;
+  padding: 10px 20px 4px 20px;
+  border-radius: 10px;
+}
+
+.sample {
+  border: 1px solid black;
+  margin: 0px 10px;
+  opacity: 0.5;
+}
+.sample:hover {
+  opacity: 1;
+}
+.sample:focus {
+  opacity: 1;
+}
+
+.sampleText {
+  padding-bottom: 31px;
+  /* margin: 10px 0px; */
+}

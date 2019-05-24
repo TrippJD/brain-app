@@ -10,10 +10,11 @@ const ImageLinkForm = ({ enterPress, onInputChange, onButtonSubmit }) => {
       <div>
         <div className="shadow-5 center form">
           <input
-            autofocus="autofocus"
+            autoFocus="autofocus"
             onKeyPress={enterPress}
             className=" input-form f4"
             type="text"
+            placeholder=" Paste image url here"
             onChange={onInputChange}
           />
           <button id="myBtn" className="grow link dib" onClick={onButtonSubmit}>
@@ -26,3 +27,10 @@ const ImageLinkForm = ({ enterPress, onInputChange, onButtonSubmit }) => {
 };
 
 export default ImageLinkForm;
+
+// useEffect(() => {
+//   function foc() {
+//     document.body.querySelector(".input-form").focus();
+//   }
+//   foc();
+// });
