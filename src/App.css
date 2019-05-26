@@ -10,7 +10,7 @@
 .entries-text {
   font-style: italic;
   font-family: "Lato", sans-serif;
-  color: #2c3531;
+  color: #272422;
 }
 
 .center {
@@ -26,8 +26,4 @@
   bottom: 0;
   left: 0;
   z-index: -1;
-}
-
-button {
-  cursor: pointer;
 }

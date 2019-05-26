@@ -15,7 +15,14 @@
 
 /* sign in and register article */
 .art {
-  margin-top: 15vh;
+  margin-top: 10vh;
+  max-width: 450px;
+}
+
+@media only screen and (max-width: 360px) {
+  .art {
+    min-width: 100vw;
+  }
 }
 
 p {

@@ -12,7 +12,7 @@ const ImageLinkForm = ({ enterPress, onInputChange, onButtonSubmit }) => {
           <input
             autoFocus="autofocus"
             onKeyPress={enterPress}
-            className=" input-form f4"
+            className=" input-form"
             type="text"
             placeholder=" Paste image url here"
             onChange={onInputChange}
